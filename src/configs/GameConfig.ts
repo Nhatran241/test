@@ -1,6 +1,6 @@
 const raceConfig = {
-    RaceMapCols: 36,
-    RaceMapRows: 36,
+    RaceMapCols: 64,
+    RaceMapRows: 64,
     BulletW: 10,
     BulletH: 10,
     BlockW: 10,

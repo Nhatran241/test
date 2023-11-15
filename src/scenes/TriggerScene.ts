@@ -116,70 +116,70 @@ export default class TriggerScene extends Phaser.Scene {
             this._marbleReleaseNums[i] = 1;
 
             let triggerRect = this._triggerRectArray[i];
-            graphic.fillRectShape(triggerRect);
+            // graphic.fillRectShape(triggerRect);
 
             let greyArr: Array<Marble> = [];
 
-            for(let grow = 0; grow < 4; grow++){
-                for(let gcol = 0; gcol < 4; gcol++){
-                    if (grow % 2 == 0){
-                        greyArr.push(
-                            greyMarbles.get(
-                                triggerRect.x + triggerRect.width * 0.333 * gcol, 
-                                triggerRect.y + triggerRect.height * 0.25 * grow
-                            )
-                        );
-                    }
-                    else{
-                        if (gcol < 3)
-                        {
-                            greyArr.push(
-                                greyMarbles.get(
-                                    triggerRect.x + triggerRect.width * (0.333 * gcol + 0.1667), 
-                                    triggerRect.y + triggerRect.height * 0.25 * grow
-                                )
-                            );
-                        }
-                    }
-                }
-            }
+            // for(let grow = 0; grow < 4; grow++){
+            //     for(let gcol = 0; gcol < 4; gcol++){
+            //         if (grow % 2 == 0){
+            //             greyArr.push(
+            //                 greyMarbles.get(
+            //                     triggerRect.x + triggerRect.width * 0.333 * gcol, 
+            //                     triggerRect.y + triggerRect.height * 0.25 * grow
+            //                 )
+            //             );
+            //         }
+            //         else{
+            //             if (gcol < 3)
+            //             {
+            //                 greyArr.push(
+            //                     greyMarbles.get(
+            //                         triggerRect.x + triggerRect.width * (0.333 * gcol + 0.1667), 
+            //                         triggerRect.y + triggerRect.height * 0.25 * grow
+            //                     )
+            //                 );
+            //             }
+            //         }
+            //     }
+            // }
 
             this._marbleGreyLayer[i] = greyArr;
             
-            let marble = colorMarbles.get(
-                triggerRect.x + triggerRect.width * 0.5,
-                triggerRect.y + raceConfig.MarbleRadius * 3
-            ) as Marble;
+            // let marble = colorMarbles.get(
+            //     triggerRect.x + triggerRect.width * 0.5,
+            //     triggerRect.y + raceConfig.MarbleRadius * 3
+            // ) as Marble;
     
-            marble.makeColor(i);
-            marble.physicsBody.setBoundsRectangle(triggerRect);
+            // marble.makeColor(i);
+            // marble.physicsBody.setBoundsRectangle(triggerRect);
 
-            multiplyRectArray[i] = this.add.rectangle(
-                i % 2 === 0 ? triggerRect.x : triggerRect.x + triggerRect.width * 0.7,
-                triggerRect.y + triggerRect.height - 10,
-                triggerRect.width * 0.3, 10,
-                raceConfig.multiplyRectColors
-            ).setOrigin(0).setDepth(1);
+            // multiplyRectArray[i] = this.add.rectangle(
+            //     i % 2 === 0 ? triggerRect.x : triggerRect.x + triggerRect.width * 0.7,
+            //     triggerRect.y + triggerRect.height - 10,
+            //     triggerRect.width * 0.3, 10,
+            //     raceConfig.multiplyRectColors
+            // ).setOrigin(0).setDepth(1);
             
-            splitRectArray[i] = this.add.rectangle(
-                i % 2 === 0 ? triggerRect.x + triggerRect.width * 0.3 : triggerRect.x + triggerRect.width * 0.65,
-                triggerRect.y + triggerRect.height - 20,
-                triggerRect.width * 0.05, 20,
-                raceConfig.disableRectColors
-            ).setOrigin(0).setDepth(1);
+            // splitRectArray[i] = this.add.rectangle(
+            //     i % 2 === 0 ? triggerRect.x + triggerRect.width * 0.3 : triggerRect.x + triggerRect.width * 0.65,
+            //     triggerRect.y + triggerRect.height - 20,
+            //     triggerRect.width * 0.05, 20,
+            //     raceConfig.disableRectColors
+            // ).setOrigin(0).setDepth(1);
             
-            releaseRectArray[i] = this.add.rectangle(
-                i % 2 === 0 ? triggerRect.x + triggerRect.width * 0.35 : triggerRect.x,
-                triggerRect.y + triggerRect.height - 10,
-                triggerRect.width * 0.65, 10,
-                raceConfig.releaseRectColors
-            ).setOrigin(0).setDepth(1);
+            // releaseRectArray[i] = this.add.rectangle(
+            //     i % 2 === 0 ? triggerRect.x + triggerRect.width * 0.35 : triggerRect.x,
+            //     triggerRect.y + triggerRect.height - 10,
+            //     triggerRect.width * 0.65, 10,
+            //     raceConfig.releaseRectColors
+            // ).setOrigin(0).setDepth(1);
             
-            this.physics.add.existing(multiplyRectArray[i], true);
+            // this.physics.add.existing(multiplyRectArray[i], true);
 
-            this.physics.add.existing(splitRectArray[i], true);
+            // this.physics.add.existing(splitRectArray[i], true);
 
-            this.physics.add.existing(releaseRectArray[i], true);
+            // this.physics.add.existing(releaseRectArray[i], true);
 
             this._marbleReleaseText[i] = this.add.text(
                 this._triggerRectArray[i].x + this._triggerRectArray[i].width * 0.5,
@@ -290,11 +290,11 @@ export default class TriggerScene extends Phaser.Scene {
                     this._fireState[color] = false;
                     this._marbleReleaseNums[color] = 1;
 
-                    releaseRectArray[color].fillColor = 0xFF0080;
-                    multiplyRectArray[color].fillColor = 0x80ff00;
+                    // releaseRectArray[color].fillColor = 0xFF0080;
+                    // multiplyRectArray[color].fillColor = 0x80ff00;
 
                     // this._marbleReleaseTimers[color].destroy();
-                    this._marbleReleaseText[color].setText(`${this._marbleReleaseNums[color]}`);
+                    this._marbleReleaseText[color].setText('${this._marbleReleaseNums[color]}');
                 }
             }
         );
@@ -317,49 +317,49 @@ export default class TriggerScene extends Phaser.Scene {
             }
         );
 
-        // per minutes add a new marble (if trigger is still avaliable)
-        this.time.addEvent(
-            {
-                delay: 30000,
-                callback: () => {
-                    this._ratioChangeTimes++;
+        // // per minutes add a new marble (if trigger is still avaliable)
+        // this.time.addEvent(
+        //     {
+        //         delay: 30000,
+        //         callback: () => {
+        //             this._ratioChangeTimes++;
 
-                    for(let i = 0; i < this._triggerRectArray.length; i++){
-                        let triggerRect = this._triggerRectArray[i];
+        //             for(let i = 0; i < this._triggerRectArray.length; i++){
+        //                 let triggerRect = this._triggerRectArray[i];
                         
-                        if (!this._fortState[i]){
-                            continue;
-                        }
+        //                 if (!this._fortState[i]){
+        //                     continue;
+        //                 }
 
-                        let marble = colorMarbles.get(
-                            triggerRect.x + triggerRect.width * 0.5,
-                            triggerRect.y + raceConfig.MarbleRadius * 3
-                        ) as Marble;
+        //                 let marble = colorMarbles.get(
+        //                     triggerRect.x + triggerRect.width * 0.5,
+        //                     triggerRect.y + raceConfig.MarbleRadius * 3
+        //                 ) as Marble;
                 
-                        marble.makeColor(i);
-                        marble.makeEntranceAnims();
-                        marble.physicsBody.setBoundsRectangle(triggerRect);
+        //                 marble.makeColor(i);
+        //                 marble.makeEntranceAnims();
+        //                 marble.physicsBody.setBoundsRectangle(triggerRect);
                         
-                        // change the ratio width
-                        if (this._ratioChangeTimes < 5){
-                            let ratioChangeOffset = this._ratioChangeTimes * 0.075;
+        //                 // change the ratio width
+        //                 if (this._ratioChangeTimes < 5){
+        //                     let ratioChangeOffset = this._ratioChangeTimes * 0.075;
 
-                            releaseRectArray[i].width = triggerRect.width * (0.65 - ratioChangeOffset);
-                            multiplyRectArray[i].width = triggerRect.width * (0.3 + ratioChangeOffset);
+        //                     releaseRectArray[i].width = triggerRect.width * (0.65 - ratioChangeOffset);
+        //                     multiplyRectArray[i].width = triggerRect.width * (0.3 + ratioChangeOffset);
 
-                            multiplyRectArray[i].x = i % 2 === 0 ? triggerRect.x : triggerRect.x + triggerRect.width * (0.7 - ratioChangeOffset);
-                            splitRectArray[i].x = i % 2 === 0 ? triggerRect.x + triggerRect.width * (0.3 + ratioChangeOffset) : triggerRect.x + triggerRect.width * (0.65 - ratioChangeOffset);
-                            releaseRectArray[i].x = i % 2 === 0 ? triggerRect.x + triggerRect.width * (0.35 + ratioChangeOffset) : triggerRect.x;
+        //                     multiplyRectArray[i].x = i % 2 === 0 ? triggerRect.x : triggerRect.x + triggerRect.width * (0.7 - ratioChangeOffset);
+        //                     splitRectArray[i].x = i % 2 === 0 ? triggerRect.x + triggerRect.width * (0.3 + ratioChangeOffset) : triggerRect.x + triggerRect.width * (0.65 - ratioChangeOffset);
+        //                     releaseRectArray[i].x = i % 2 === 0 ? triggerRect.x + triggerRect.width * (0.35 + ratioChangeOffset) : triggerRect.x;
                         
-                            (releaseRectArray[i].body as Phaser.Physics.Arcade.StaticBody).updateFromGameObject();
-                            (splitRectArray[i].body as Phaser.Physics.Arcade.StaticBody).updateFromGameObject();
-                            (multiplyRectArray[i].body as Phaser.Physics.Arcade.StaticBody).updateFromGameObject();
-                        }
-                    }
-                },
-                repeat: 4
-            }
-        );
+        //                     (releaseRectArray[i].body as Phaser.Physics.Arcade.StaticBody).updateFromGameObject();
+        //                     (splitRectArray[i].body as Phaser.Physics.Arcade.StaticBody).updateFromGameObject();
+        //                     (multiplyRectArray[i].body as Phaser.Physics.Arcade.StaticBody).updateFromGameObject();
+        //                 }
+        //             }
+        //         },
+        //         repeat: 4
+        //     }
+        // );
 
         // fill up the bottom wrap border
         let noticeRect = new Phaser.Geom.Rectangle(
@@ -387,14 +387,15 @@ export default class TriggerScene extends Phaser.Scene {
         )
 
         
-        this.fireFort(MarbleColors.Blue);
-        this.fireFort(MarbleColors.Red);
-        this.fireFort(MarbleColors.Blue);
-        this.fireFort(MarbleColors.Blue);
+        const scene = this;
+        addEventListener('keydown', (e) => {
+            scene.fireFort(MarbleColors.Blue, 1);
+        }); 
+        
 
     }
 
-    fireFort(color: MarbleColors) {
+    fireFort(color: MarbleColors, count: number) {
         if (this._fortState[color] && !this._fireState[color]) {
             // Perform actions when the fort fires
             // You can adapt the logic from your existing code
@@ -402,7 +403,7 @@ export default class TriggerScene extends Phaser.Scene {
             // For example, you might want to set _fireState to true,
             // emit an event, and update the state accordingly.
             this._fireState[color] = true;
-            sceneEvents.emit(EVENT_FORT_FIRE, color, this._marbleReleaseNums[color]);
+            sceneEvents.emit(EVENT_FORT_FIRE, color, count);
     
             // Perform other actions as needed...
         }
